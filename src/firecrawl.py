@@ -15,9 +15,11 @@ class FireCrawlService:
     def search_companies(self, query: str, num_results: int = 5):
         try:
             result = self.app.search(
-                query=f"",
+                query=f"{query} company pricing",
                 limit=num_results,
-                scrape_options=ScrapeOptions(formats=["markdown"]),
+                scrape_options=ScrapeOptions(
+                    formats=["markdown"]
+                ),
             )
             return result
         except Exception as e:
